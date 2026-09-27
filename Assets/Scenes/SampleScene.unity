@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 1961988085}
   - component: {fileID: 1961988084}
   - component: {fileID: 1961988088}
+  - component: {fileID: 1961988090}
   - component: {fileID: 1961988087}
   - component: {fileID: 1961988086}
   - component: {fileID: 1961988089}
@@ -1043,7 +1044,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1054,7 +1055,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1961988088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,7 +1115,19 @@ MonoBehaviour:
     m_ActionId: 3dce7da1-dedd-428d-976a-d524572f3972
     m_ActionName: Player/Look[/Mouse/delta,/Touchscreen/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1961988090}
+        m_TargetAssemblyTypeName: PlayerShoot, Assembly-CSharp
+        m_MethodName: HandleShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c3eb29d2-4100-4b56-981b-7a73c5af97a3
     m_ActionName: Player/Fire[/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
   - m_PersistentCalls:
@@ -1170,6 +1183,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1961988090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961988083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af8ebd2622ecb0489311de9355cb117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawn: {fileID: 827670207}
+  aim: {fileID: 2035075594}
+  projectilePrefab: {fileID: 519667232304992150, guid: 546fadb507ff3c146b431cf59b1c30ac, type: 3}
 --- !u!1 &2035075594
 GameObject:
   m_ObjectHideFlags: 0
