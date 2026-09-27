@@ -1195,8 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af8ebd2622ecb0489311de9355cb117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawn: {fileID: 827670207}
-  aim: {fileID: 2035075594}
+  projectileSpawn: {fileID: 827670207}
+  aim: {fileID: 2035075595}
   projectilePrefab: {fileID: 519667232304992150, guid: 546fadb507ff3c146b431cf59b1c30ac, type: 3}
 --- !u!1 &2035075594
 GameObject:
