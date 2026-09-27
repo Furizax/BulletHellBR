@@ -980,8 +980,8 @@ Transform:
   m_LocalScale: {x: 1.9899999, y: 1.9899999, z: 1.9899999}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 827670207}
   - {fileID: 2035075595}
+  - {fileID: 827670207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1961988086
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
+  player: {fileID: 1961988085}
 --- !u!212 &2035075597
 SpriteRenderer:
   m_ObjectHideFlags: 0
