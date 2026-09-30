@@ -394,10 +394,11 @@ GameObject:
   - component: {fileID: 407285929}
   - component: {fileID: 407285928}
   - component: {fileID: 407285927}
+  - component: {fileID: 407285932}
   - component: {fileID: 407285931}
   - component: {fileID: 407285930}
   m_Layer: 0
-  m_Name: Hexagon Pointed-Top
+  m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,9 +417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
-  damage: 0
-  moveSpeed: 0
-  fireRate: 0
 --- !u!212 &407285928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -564,6 +562,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &407285932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407285926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf01e0f5084bf34aaa8c6d5fd1a4906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 100
+  damage: 10
+  defense: 0
+  speed: 3
+  fireRate: 2
+  StatusDurationRes: 0
+  statusVulnerability: 0
+  BurnRes: 50
+  PoisonRes: 50
+  FrostRes: 50
+  FreezeRes: 50
+  ShockRes: 50
+  BleedRes: 50
+  HPDrainRes: 50
+  Oil: 0
+  Wet: 0
+  StaggerRes: 50
+  StatusDecay: 5
+  ResistanceGrowth: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
