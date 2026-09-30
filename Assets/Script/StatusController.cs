@@ -51,5 +51,8 @@ public class StatusController : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        isBurning = false;
+        currentBuildUp = 0;
     }
 }
