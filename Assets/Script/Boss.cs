@@ -6,9 +6,9 @@ public class Boss : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] private int hp;
-    [SerializeField] private float damage;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float fireRate;
+   // [SerializeField] private float damage;
+    //[SerializeField] private float moveSpeed;
+   // [SerializeField] private float fireRate;
     private bool isDead; 
 
     // Start is called before the first frame update
@@ -30,6 +30,7 @@ public class Boss : MonoBehaviour
         if(hp <= 0)
         {
             Destroy(gameObject);
+            isDead = true;
         }
     }
 }
