@@ -29,9 +29,8 @@ public class Boss : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHP -=  damage;
-
-        if(currentHP <= 0)
+        currentHP -= damage;
+        if (currentHP <= 0)
         {
             Destroy(gameObject);
             isDead = true;

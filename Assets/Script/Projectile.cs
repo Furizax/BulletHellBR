@@ -27,11 +27,12 @@ public class Projectile : MonoBehaviour
     {
 
         Boss boss = collision.gameObject.GetComponent<Boss>();
-
         if (collision.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("Projectile hit the boss");
-            boss.TakeDamage(1);
+            StatusController statusController = boss.GetComponent<StatusController>();
+            statusController.StatusBuildUp(StatusController.Status.Burn, 5f);
+            Debug.Log("Burn damage !");
+            boss.TakeDamage(0);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("Border"))

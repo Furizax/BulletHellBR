@@ -12,6 +12,10 @@ public class StatusController : MonoBehaviour
     private float effectBuildDuration;
     private bool isBurning;
 
+    public enum Status
+    {
+        Burn
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +27,27 @@ public class StatusController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void StatusBuildUp(float buildupValue)
+    public void StatusBuildUp(Status statusType, float buildupValue)
     {
-        currentBuildUp += buildupValue; 
-        if(currentBuildUp >= bossStats.BurnRes)
+        Debug.Log("StatusBuildUp appelé : " + statusType);
+        if (statusType == Status.Burn && isBurning)
+            return; 
+
+        switch (statusType)
         {
-            isBurning = true;
-            StartCoroutine(Burn(10f));
+            case Status.Burn:
+                currentBuildUp += buildupValue;
+                if (currentBuildUp >= bossStats.BurnRes)
+                {
+                    isBurning = true;
+                    Debug.Log("Boss is burning");
+                    StartCoroutine(Burn(10f));
+                }
+                break;
+
         }
     }
 
@@ -43,7 +58,7 @@ public class StatusController : MonoBehaviour
         while (elapsed < duration)
         {
             damageTimer += Time.deltaTime;
-            if(damageTimer >= 2)
+            if (damageTimer >= 2)
             {
                 boss.TakeDamage(7);
                 damageTimer = 0f;
