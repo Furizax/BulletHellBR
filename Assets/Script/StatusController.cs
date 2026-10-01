@@ -68,6 +68,8 @@ public class StatusController : MonoBehaviour
         }
 
         isBurning = false;
+        bossStats.BurnRes += bossStats.ResistanceGrowth;
         currentBuildUp = 0;
+       
     }
 }
