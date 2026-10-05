@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -8,13 +9,13 @@ public class Boss : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject player;
     private BossStats stats;
-    [SerializeField] private Transform shootPoints;
+    [SerializeField] private Transform[] shootPoints;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private int currentHP;
+    [SerializeField] private float fireRate = 0.5f;
+    private float shootTime = 0.1f;
    // [SerializeField] private float damage;
-    //[SerializeField] private float moveSpeed;
-   // [SerializeField] private float fireRate;
-    private bool isDead; 
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -28,18 +29,29 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ShootPoint();
+        shootTime += Time.deltaTime;
+        if(shootTime >= fireRate)
+        {
+            ShootPoint();
+            shootTime = 0;
+        }
+
     }
 
     public void ShootPoint()
     {
-        GameObject projectile = Instantiate(projectilePrefab, shootPoints.position, shootPoints.rotation);
-        BossProjectile bossProjectile = projectile.GetComponent<BossProjectile>();
+        foreach(Transform point in shootPoints)
+        {
+            if(point != null)
+            {
+                GameObject projectile = Instantiate(projectilePrefab, point.position, point.rotation);
+                BossProjectile bossProjectile = projectile.GetComponent<BossProjectile>();
 
-        Vector2 direction = player.transform.position - shootPoints.position;
-        direction = direction.normalized;
-
-        bossProjectile.SetDirection(direction);
+                Vector2 direction = point.right;
+                direction = direction.normalized;
+                bossProjectile.SetDirection(direction);
+            }
+        }
     }
 
     public void TakeDamage(int damage)
