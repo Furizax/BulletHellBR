@@ -33,13 +33,13 @@ public class Boss : MonoBehaviour
 
     public void ShootPoint()
     {
-        GameObject BossProjectile = Instantiate(projectilePrefab, shootPoints.position, shootPoints.rotation);
-        Projectile projectile = BossProjectile.GetComponent<Projectile>();
+        GameObject projectile = Instantiate(projectilePrefab, shootPoints.position, shootPoints.rotation);
+        BossProjectile bossProjectile = projectile.GetComponent<BossProjectile>();
 
         Vector2 direction = player.transform.position - shootPoints.position;
         direction = direction.normalized;
 
-        projectile.SetDirection(direction);
+        bossProjectile.SetDirection(direction);
     }
 
     public void TakeDamage(int damage)

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1686342260296297983}
   - component: {fileID: 8794200733102378982}
   - component: {fileID: 628739029103156032}
-  - component: {fileID: 487110129209944662}
+  - component: {fileID: -8988862491514082249}
   m_Layer: 0
   m_Name: BossProjectile
-  m_TagString: Untagged
+  m_TagString: BossProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,8 +158,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &487110129209944662
+  m_Constraints: 4
+--- !u!114 &-8988862491514082249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5543055019335486016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016ace3aef4f8154dbd0f7e2f352d2f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 557aede4ad2e6174bbf67d606f1c6e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 10

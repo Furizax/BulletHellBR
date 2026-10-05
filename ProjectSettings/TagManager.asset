@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Border
   - Boss
+  - BossProjectile
   layers:
   - Default
   - TransparentFX

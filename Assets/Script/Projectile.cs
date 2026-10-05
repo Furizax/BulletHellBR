@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = direction * projectileSpeed;
+        rb.velocity = direction * projectileSpeed; //mouvement du projectile
     }
 
     public void SetDirection(Vector2 newDirection)
@@ -27,6 +28,7 @@ public class Projectile : MonoBehaviour
     {
 
         Boss boss = collision.gameObject.GetComponent<Boss>();
+        BossProjectile bossProjectile = collision.gameObject.GetComponent<BossProjectile>();
         if (collision.gameObject.CompareTag("Boss"))
         {
             StatusController statusController = boss.GetComponent<StatusController>();
@@ -37,6 +39,11 @@ public class Projectile : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Border"))
         {
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.CompareTag("BossProjectile"))
+        {
+            Destroy(bossProjectile.gameObject);
             Destroy(gameObject);
         }
     }
