@@ -6,7 +6,10 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public GameObject player;
     private BossStats stats;
+    [SerializeField] private Transform shootPoints;
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private int currentHP;
    // [SerializeField] private float damage;
     //[SerializeField] private float moveSpeed;
@@ -18,13 +21,25 @@ public class Boss : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<BossStats>();
+        player = GameObject.FindGameObjectWithTag("Player");
         currentHP = stats.Hp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ShootPoint();
+    }
+
+    public void ShootPoint()
+    {
+        GameObject BossProjectile = Instantiate(projectilePrefab, shootPoints.position, shootPoints.rotation);
+        Projectile projectile = BossProjectile.GetComponent<Projectile>();
+
+        Vector2 direction = player.transform.position - shootPoints.position;
+        direction = direction.normalized;
+
+        projectile.SetDirection(direction);
     }
 
     public void TakeDamage(int damage)

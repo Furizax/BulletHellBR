@@ -32,7 +32,7 @@ public class StatusController : MonoBehaviour
 
     public void StatusBuildUp(Status statusType, float buildupValue)
     {
-        Debug.Log("StatusBuildUp appelé : " + statusType);
+        //Debug.Log("StatusBuildUp appelé : " + statusType);
         if (statusType == Status.Burn && isBurning)
             return; 
 
